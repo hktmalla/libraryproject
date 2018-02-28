@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Library management System</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: lightblue;">
+	<div>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  <!-- Brand -->
+		  <a class="navbar-brand" href="{% url 'libraryapp:admindash' %}">Home</span></a>
+
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		  	<li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        Modules
+		      </a>
+		      <div class="dropdown-menu">
+		      	<a class="dropdown-item" href="{% url 'libraryapp:adminread' %}"><span></span>Read</a>
+		      	<a class="dropdown-item" href="{% url 'libraryapp:admincreate' %}">Student Detail</a>
+		      </div>
+		    </li>
+
+		    <!-- Dropdown -->
+		    <li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        Issue Books
+		      </a>
+		      <div class="dropdown-menu">
+		        <a class="dropdown-item" href="#">Link 1</a>
+		        <a class="dropdown-item" href="#">Link 2</a>
+		        <a class="dropdown-item" href="#">Link 3</a>
+		      </div>
+		    </li>
+		  </ul>
+	 </nav>
+</div>
+	{% block content %}
+
+
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form method="POST" action="{% url 'libraryapp:admindelete' object.id %}">
+        {% csrf_token %}
+        <button>Delete</button>
+        
+    </form>
+
+
+{% endblock %}
