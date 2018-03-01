@@ -62,3 +62,18 @@ class AdminLogoutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
         HttpResponseRedirect('/adminlogin/')
+
+
+
+class AdminIssueListView(LoginRequiredMixin, ListView):
+    login_url = '/'
+    template_name = 'adminissuelist.html'
+    queryset = Issue.objects.all()
+    context_object_name = 'issues'
+
+
+class AdminCategoryListView(LoginRequiredMixin, ListView):
+    login_url = '/'
+    template_name = 'admincategory.html'
+    queryset = Category.objects.all()
+    context_object_name = 'categories'

@@ -28,7 +28,8 @@
 		      </a>
 		      <div class="dropdown-menu">
 		      	<a class="dropdown-item" href="{% url 'libraryapp:adminread' %}"><span></span>Read</a>
-		      	<a class="dropdown-item" href="{% url 'libraryapp:admincreate' %}">Student Detail</a>
+		      	<a class="dropdown-item" href="{% url 'libraryapp:admincreate' %}">Student Add</a>
+		      	<a class="dropdown-item" href="{% url 'libraryapp:admincategory' %}">Category</a>
 		      </div>
 		    </li>
 
@@ -47,7 +48,6 @@
 	 </nav>
 </div>
 	{% block content %}
-
 
 	{% endblock %}
 </body>

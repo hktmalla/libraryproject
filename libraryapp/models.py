@@ -8,9 +8,8 @@ class Student(models.Model):
     phone_number = models.IntegerField(blank=False)
     batch = models.DateField()
 
-
     def __str__(self):
-    	return self.student_name
+        return self.student_name
 
 
 class Book(models.Model):
@@ -18,9 +17,8 @@ class Book(models.Model):
     book_name = models.CharField(max_length=30, blank=False)
     author = models.CharField(max_length=20, blank=False)
 
-
     def __str__(self):
-    	return self.book_name
+        return self.book_name
 
 
 class Issue(models.Model):
@@ -29,3 +27,15 @@ class Issue(models.Model):
     issue_date = models.DateField(blank=False)
     expire_date = models.DateField(blank=False)
 
+
+class Category(models.Model):
+    CATEGORY_CHOICES = (
+        ('It', 'IT Department'),
+        ('Computer', 'Computer Department'),
+        ('Bba', ' BBA Department'),
+        ('Electronic', 'Electronic and Communication Department'),
+        ('Civil', 'Civil Department'),
+    )
+    category_name = models.CharField(
+        max_length=30, choices=CATEGORY_CHOICES, blank=False, default='It')
+    book_detail = models.ForeignKey(Book, on_delete=models.CASCADE)

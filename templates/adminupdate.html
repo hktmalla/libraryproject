@@ -5,7 +5,8 @@
          <form method="POST">
          	{% csrf_token %}
          	 {{ form.as_p }}
-         	<button class="btn btn-warning">Edit</button>
+         	<button class="btn btn-primary">Edit</button>
+         	<a href="{% url 'libraryapp:adminread' %}" class="btn btn-primary">Cancel</a>
          </form>
       
    {% endblock %}
