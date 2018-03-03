@@ -8,42 +8,61 @@ from django.http import HttpResponseRedirect
 
 class AdminDashView(LoginRequiredMixin, TemplateView):
     login_url = '/'
-    template_name = 'admindash.html'
+    template_name = 'student/admindash.html'
+
+
+class AdminHomeView(LoginRequiredMixin, TemplateView):
+    login_url = '/'
+    template_name = 'student/adminhome.html'
 
 
 class AdminCreateView(LoginRequiredMixin, CreateView):
     login_url = '/'
-    template_name = 'admincreate.html'
+    template_name = 'student/admincreate.html'
     form_class = StudentForm
     success_url = '/admin-dash/read/'
 
 
+class AdminBookView(LoginRequiredMixin, ListView):
+    login_url = '/'
+    template_name = 'book/adminbooklist.html'
+    model = Book
+    context_object_name = 'books'
+
+
+class AdminAddBookView(LoginRequiredMixin, CreateView):
+    login_url = '/'
+    template_name = 'book/adminaddbook.html'
+    form_class = BookForm
+    success_url = '/admin-dash/book'
+
+
 class AdminReadView(LoginRequiredMixin, ListView):
     login_url = '/'
-    template_name = 'adminread.html'
+    template_name = 'student/adminread.html'
     model = Student
     context_object_name = 'students'
 
 
 class AdminDeleteView(LoginRequiredMixin, DeleteView):
     login_url = '/'
-    template_name = 'admindelete.html'
+    template_name = 'student/admindelete.html'
     model = Student
     success_url = '/admin-dash/read/'
 
 
 class AdminUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/'
-    template_name = 'adminupdate.html'
+    template_name = 'student/adminupdate.html'
     model = Student
     form_class = StudentForm
     success_url = '/admin-dash/read/'
 
 
 class AdminLoginView(FormView):
-    template_name = 'adminlogin.html'
+    template_name = 'student/adminlogin.html'
     form_class = AdminLoginForm
-    success_url = '/admin-dash/'
+    success_url = '/home/'
 
     def form_valid(self, form):
         u_name = form.cleaned_data['user_name']
@@ -64,16 +83,8 @@ class AdminLogoutView(LoginRequiredMixin, View):
         HttpResponseRedirect('/adminlogin/')
 
 
-
 class AdminIssueListView(LoginRequiredMixin, ListView):
     login_url = '/'
-    template_name = 'adminissuelist.html'
+    template_name = 'student/adminissuelist.html'
     queryset = Issue.objects.all()
     context_object_name = 'issues'
-
-
-class AdminCategoryListView(LoginRequiredMixin, ListView):
-    login_url = '/'
-    template_name = 'admincategory.html'
-    queryset = Category.objects.all()
-    context_object_name = 'categories'

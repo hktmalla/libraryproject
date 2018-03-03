@@ -12,7 +12,21 @@ class AdminLoginForm(forms.Form):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['student_name', 'roll_number', 'address', 'phone_number', 'batch']
+        fields = ['student_name', 'roll_number',
+                  'address', 'phone_number', 'batch']
+
+        def __init__(self, *args, **kwargs):
+            super.__init__(*args, **kwargs)
+            for field in iter(self.fields):
+                self.fields[field].widget.attrs.update(
+                    {'class': 'form-control'}
+                )
+
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['category_title', 's_id', 'book_name', 'author']
 
         def __init__(self, *args, **kwargs):
             super.__init__(*args, **kwargs)

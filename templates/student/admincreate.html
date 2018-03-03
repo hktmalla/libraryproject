@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends '../base.html' %}
 {% load static %}
 
 
@@ -10,7 +10,7 @@
      		{% csrf_token %}
      		 {{form.as_p}}
      		 <button class="btn btn-primary">Save</button>
-     		 <a href="{% url 'libraryapp:adminread' %}" class="btn btn-primary">Save</button></a>
+     		 <a href="{% url 'libraryapp:adminread' %}" class="btn btn-primary">Cancel</button></a>
      	</form>
      </div>
      </center>

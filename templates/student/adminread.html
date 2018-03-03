@@ -1,0 +1,66 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+           <div class="container">
+                <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Roll Number</th>
+                                            <th>Address</th>
+                                            <th>Contact</th>
+                                            <th>Batch</th>
+                                            <th colspan="2" style="text-align: center;">Make Changes</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Roll Number</th>
+                                            <th>Address</th>
+                                            <th>Contact</th>
+                                            <th>Batch</th>
+                                            <th colspan="2" style="text-align: center;">Make Changes</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for stud in students %}
+                                        <tr>
+                                              <td>{{stud.student_name}}</td>
+                                              <td>{{stud.roll_number}}</td>
+                                              <td>{{stud.address}}</td>
+                                              <td>{{stud.phone_number}}</td>
+                                              <td>{{stud.batch}}</td>
+                                              <td>
+                                                <a href="{% url 'libraryapp:admindelete' stud.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                                              </td>
+                                              <td>
+                                                <a href="{% url 'libraryapp:adminupdate' stud.id %}" class="btn btn-primary">Edit</a>
+                                              </td>
+                                          </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+       </div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'datatable/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'datatable/js/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'datatable/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'datatable/js/jquery-datatable.js' %}"></script>
+{% endblock %}

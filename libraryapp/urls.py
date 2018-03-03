@@ -4,7 +4,10 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', AdminLoginView.as_view(), name='adminlogin'),
-    url(r'^admin-dash/$', AdminDashView.as_view(), name='admindash'),
+    url(r'^home/$',
+        AdminHomeView.as_view(), name='adminhome'),
+    url(r'^admin-dash/$',
+        AdminDashView.as_view(), name='admindash'),
     url(r'^admin-dash/logout/$',
         AdminLogoutView.as_view(), name='adminlogout'),
     url(r'^admin-dash/create/$',
@@ -17,6 +20,8 @@ urlpatterns = [
         AdminUpdateView.as_view(), name='adminupdate'),
     url(r'^admin-dash/issues/$',
         AdminIssueListView.as_view(), name='adminstudentlist'),
-    url(r'^admin-dash/category/$',
-        AdminCategoryListView.as_view(), name='admincategory'),
+    url(r'^admin-dash/book/$',
+        AdminBookView.as_view(), name="adminbooklist"),
+    url(r'^admin-dash/bookadd/$',
+        AdminAddBookView.as_view(), name='adminaddbook'),
 ]

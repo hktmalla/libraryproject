@@ -12,7 +12,17 @@ class Student(models.Model):
         return self.student_name
 
 
+CATEGORY_CHOICES = (
+        ('IT', 'IT'),
+        ('Computer', 'Computer'),
+        ('Electronics', 'Electronics'),
+    )
+
+
 class Book(models.Model):
+
+    category_title = models.CharField(
+        max_length=30, choices=CATEGORY_CHOICES, default=1)
     s_id = models.CharField(max_length=20, blank=False)
     book_name = models.CharField(max_length=30, blank=False)
     author = models.CharField(max_length=20, blank=False)
@@ -26,16 +36,3 @@ class Issue(models.Model):
     issue_book = models.ForeignKey(Book, on_delete=models.CASCADE)
     issue_date = models.DateField(blank=False)
     expire_date = models.DateField(blank=False)
-
-
-class Category(models.Model):
-    CATEGORY_CHOICES = (
-        ('It', 'IT Department'),
-        ('Computer', 'Computer Department'),
-        ('Bba', ' BBA Department'),
-        ('Electronic', 'Electronic and Communication Department'),
-        ('Civil', 'Civil Department'),
-    )
-    category_name = models.CharField(
-        max_length=30, choices=CATEGORY_CHOICES, blank=False, default='It')
-    book_detail = models.ForeignKey(Book, on_delete=models.CASCADE)
