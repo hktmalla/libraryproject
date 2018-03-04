@@ -5,41 +5,52 @@
 	<title>Library management System</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js""></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formstyle.css' %}">
 	<!-- jQuery library -->
-
-	{% block css %}
-
-
-	{% endblock %}
 </head>
 <body style="background-color: lightblue;">
-	<a class="dropdown-item" href="{% url 'libraryapp:adminread' %}"><span></span>Student</a>
-		      	<a class="dropdown-item" href="{% url 'libraryapp:admincreate' %}">Add Student</a>
-		      	<a class="dropdown-item" href="{% url 'libraryapp:adminbooklist' %}">Book</a>
-		      	<a class="dropdown-item" href="{% url 'libraryapp:adminaddbook' %}">Add Book</a>
-</div>
+	<!-- Navigation bar -->
+	<nav class="navbar navbar-inverse">
+		        <div class="container-fluid">			    
+		        <ul class="nav navbar-nav">
+			      <li class="active"><a href="{% url 'libraryapp:adminhome' %}">Home</a></li>
+			      <li class="dropdown">
+			        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Modules
+			        <span class="caret"></span></a>
+			        <ul class="dropdown-menu">
+			          <li><a href="{% url 'libraryapp:adminread' %}">Student</a></li>
+			          <li><a href="{% url 'libraryapp:admincreate' %}">Add Student</a></li>
+			          <li><a href="{% url 'libraryapp:adminbooklist' %}">Book</a></li>
+			          <li><a href="{% url 'libraryapp:adminaddbook'%}">Add Book</a></li>
+			        </ul>
+			      </li>
+			      <li class="dropdown">
+			      <a  class="dropdown-toggle"  data-toggle="dropdown" href="">Issues<span class="caret"></span></a>
+			      <ul class="dropdown-menu">
+			      	<li><a href="{% url 'libraryapp:adminissue' %}">issue</a></li>
+			      	<li><a href="{% url 'libraryapp:adminissuelist' %}">issue details</a></li>
+			      </ul>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+				  	<li class="nav-item"></li>
+				  	<img src="{% static 'images/admin.png'%}">
+				  	<a href="{% url 'libraryapp:adminlogin' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+			    </ul>
+			    </div>
 
-<br>
-<br>
-<br>
-<br>
+    </nav>
 	{% block content %}
 
 
 	{% endblock %}
-
-
-
-
-	<script src="{% static 'js/jquery.js' %}"></script>
-
-	<!-- Popper JS -->
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	{% block javascript %}
-
-	{% endblock %}
+	<br>
+	<br />
+<footer class="container-fluid" style="background-color: black;">
+	<h3>copyright </h3>
+</footer>
 
 </body>
 </html>

@@ -13,10 +13,12 @@ class Student(models.Model):
 
 
 CATEGORY_CHOICES = (
-        ('IT', 'IT'),
-        ('Computer', 'Computer'),
-        ('Electronics', 'Electronics'),
-    )
+    ('IT', 'IT'),
+    ('Computer', 'Computer'),
+    ('Electronics', 'Electronics'),
+    ('Civil', 'Civil'),
+    ('Bba', 'BBA'),
+)
 
 
 class Book(models.Model):

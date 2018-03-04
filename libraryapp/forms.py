@@ -15,12 +15,11 @@ class StudentForm(forms.ModelForm):
         fields = ['student_name', 'roll_number',
                   'address', 'phone_number', 'batch']
 
-        def __init__(self, *args, **kwargs):
-            super.__init__(*args, **kwargs)
-            for field in iter(self.fields):
-                self.fields[field].widget.attrs.update(
-                    {'class': 'form-control'}
-                )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update(
+                {'class': 'form-control'})
 
 
 class BookForm(forms.ModelForm):
@@ -28,9 +27,22 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ['category_title', 's_id', 'book_name', 'author']
 
-        def __init__(self, *args, **kwargs):
-            super.__init__(*args, **kwargs)
-            for field in iter(self.fields):
-                self.fields[field].widget.attrs.update(
-                    {'class': 'form-control'}
-                )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update(
+                {'class': 'form-control'}
+            )
+
+
+class IssueForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['issue_name', 'issue_book', 'issue_date', 'expire_date']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update(
+                {'class': 'form-control'}
+            )

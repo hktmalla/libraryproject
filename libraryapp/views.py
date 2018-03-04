@@ -83,8 +83,15 @@ class AdminLogoutView(LoginRequiredMixin, View):
         HttpResponseRedirect('/adminlogin/')
 
 
+class AdminIssueCreateView(LoginRequiredMixin, CreateView):
+    login_url = '/'
+    template_name = 'issue/adminissue.html'
+    form_class = IssueForm
+    success_url = '/admin-dash/issue-read/'
+
+
 class AdminIssueListView(LoginRequiredMixin, ListView):
     login_url = '/'
-    template_name = 'student/adminissuelist.html'
+    template_name = 'issue/adminissuelist.html'
     queryset = Issue.objects.all()
     context_object_name = 'issues'

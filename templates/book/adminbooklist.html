@@ -1,20 +1,12 @@
 {% extends '../base.html'%}
 {% load static %}
 
-
-{% block formheader %}
-
-    <ul class="navbar-nav ml-auto">
-          <li class="nav-item"></li>
-          <form class="form-inline" action="">
-            <input type="text" class="form-control" placeholder="Search">
-            <button class="btn btn-sucess" type="submit">Search</button>
-          </form>
-      </ul>
-{% endblock %}
-
     {% block content %}
-
+        <div class="row">
+           <div class="col-md-6 col-md-offset-3 text-center">
+            <h2 style="color: #0C18D1; font-weight: bold;">Book Details</h2><hr>
+        </div>
+        </div>
          <div class="container">
                 <table class="table table-bordered table-hover">
                      <thead class="thead-light">
@@ -33,8 +25,10 @@
                           <td>{{book.author}}</td>
                           <td>{{book.category_title}}</td>
                           <td><a href="{% url 'libraryapp:admindelete' book.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
-                          <td><a href="{% url 'libraryapp:adminupdate' book.id %}" button class="btn btn-primary">Edit</button></a></td>
+                          <td><a href="{% url 'libraryapp:adminupdate' book.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Edit</a></td>
                       </tr>
                       {% endfor %}
+                </table>
+          </div>
 
-    {% endblock %}
+{% endblock %}

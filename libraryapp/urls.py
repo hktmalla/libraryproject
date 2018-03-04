@@ -24,4 +24,8 @@ urlpatterns = [
         AdminBookView.as_view(), name="adminbooklist"),
     url(r'^admin-dash/bookadd/$',
         AdminAddBookView.as_view(), name='adminaddbook'),
+    url('^admin-dash/issue/$',
+        AdminIssueCreateView.as_view(), name="adminissue"),
+    url('^admin-dash/issue-read/$',
+        AdminIssueListView.as_view(), name="adminissuelist"),
 ]

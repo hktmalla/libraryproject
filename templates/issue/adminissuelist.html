@@ -1,0 +1,39 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+   <div class="row">
+                   <div class="col-md-6 col-md-offset-3 text-center">
+                    <h2 style="color:hsla(20%,50%,70%,0.6); font-weight: bold;">Issue Details</h2><hr>
+                </div>
+    </div>
+
+    <div class="container">
+                <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Student Name</th>
+                                            <th>Book </th>
+                                            <th>Issue Date </th>
+                                            <th>Expiry Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for issue in issues %}
+                                        <tr>
+                                              <td>{{issue.issue_name.student_name}}</td>
+                                              <td>{{issue.issue_book.book_name}}</td>
+                                              <td>{{issue.issue_date}}</td>
+                                              <td>{{issue.expire_date}}</td>
+                                          </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                  </div>
+
+
+{% endblock %}
