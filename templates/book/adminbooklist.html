@@ -24,6 +24,7 @@
                 <table class="table table-bordered table-hover" id="myTable">
                      <thead class="thead-light">
                       <tr class="active">
+                            <th>S.NO</th>
                             <th>S_ID</th>
                             <th>Book Name</th>
                             <th>Author</th>
@@ -34,6 +35,7 @@
                       <tbody>
                       {% for book in books %}
                       <tr>
+                          <td>{{forloop.counter}}</td>
                           <td>{{book.s_id}}</td>
                           <td>{{book.book_name}}</td>
                           <td>{{book.author}}</td>
