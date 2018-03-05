@@ -8,8 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js""></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/formstyle.css' %}">
 	<!-- jQuery library -->
+	{% block css %}
+
+	{% endblock %}
+
+	{% block javascript %}
+
+	{% endblock %}
 </head>
 <body style="background-color: lightblue;">
 	<!-- Navigation bar -->
@@ -37,15 +43,25 @@
 			    <ul class="nav navbar-nav navbar-right">
 				  	<li class="nav-item"></li>
 				  	<img src="{% static 'images/admin.png'%}">
-				  	<a href="{% url 'libraryapp:adminlogin' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+				  	<a href="{% url 'libraryapp:adminlogout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
 			    </ul>
 			    </div>
 
     </nav>
-	{% block content %}
+    <section class="content">
+		{% block content %}
 
 
-	{% endblock %}
+		{% endblock %}
+
+		<div class="modal fade" id="library" role="dialog">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+
+		        </div>
+		    </div>
+        </div>
+	</section>
 	<br>
 	<br />
 <footer class="container-fluid" style="background-color: black;">

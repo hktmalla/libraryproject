@@ -2,6 +2,14 @@
 {% load static %}
 
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/css/jquery.dataTables.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'datatable/js/jquery.dataTables.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
         <div class="row">
@@ -12,29 +20,29 @@
 
            <div class="container">
                 <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover">
+                                <table class="table table-bordered table-striped table-hover" id="myTable">
                                     <thead>
                                         <tr>
+                                            <th>SN</th>
                                             <th>Name</th>
                                             <th>Roll Number</th>
                                             <th>Address</th>
                                             <th>Contact</th>
                                             <th>Batch</th>
-                                            <th colspan="2" style="text-align: center;">Make Changes</th>
+                                            <th>Make Changes</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for stud in students %}
                                         <tr>
+                                              <td>{{forloop.counter}}</td>
                                               <td>{{stud.student_name}}</td>
                                               <td>{{stud.roll_number}}</td>
                                               <td>{{stud.address}}</td>
                                               <td>{{stud.phone_number}}</td>
                                               <td>{{stud.batch}}</td>
                                               <td>
-                                                <a href="{% url 'libraryapp:admindelete' stud.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
-                                              </td>
-                                              <td>
+                                                <a href="{% url 'libraryapp:admindelete' stud.id %}" class="btn btn-warning" data-toggle="modal" data-target="#library"><span class="glyphicon glyphicon-trash"></span>Delete</a>
                                                 <a href="{% url 'libraryapp:adminupdate' stud.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                                               </td>
                                           </tr>
@@ -44,4 +52,11 @@
                             </div>
                   </div>
 
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 {% endblock %}

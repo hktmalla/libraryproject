@@ -1,11 +1,14 @@
-{% extends '../base.html' %}
-{% load static %}
-{% block content %}
-    <form method="POST" action="{% url 'libraryapp:admindelete' object.id %}">
-        {% csrf_token %}
-        <button>Delete</button>
-        
-    </form>
-
-
-{% endblock %}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3 class="modal-title">Delete {{object.student_name}}</h3>
+</div>
+	    <form method="POST" action="{% url 'libraryapp:admindelete' object.id %}">
+	        {% csrf_token %}
+	         <div class="modal-body">
+        Are you sure you want to delete {{object.student_name}}?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </div>
+	    </form>

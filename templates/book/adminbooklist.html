@@ -1,6 +1,18 @@
 {% extends '../base.html'%}
 {% load static %}
 
+
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/css/jquery.dataTables.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'datatable/js/jquery.dataTables.js' %}"></script>
+{% endblock %}
+
+
     {% block content %}
         <div class="row">
            <div class="col-md-6 col-md-offset-3 text-center">
@@ -8,27 +20,38 @@
         </div>
         </div>
          <div class="container">
-                <table class="table table-bordered table-hover">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="myTable">
                      <thead class="thead-light">
                       <tr class="active">
                             <th>S_ID</th>
                             <th>Book Name</th>
                             <th>Author</th>
                             <th>Department</th>
-                            <th colspan="2" style="text-align: center;">Make Changes</th>
+                            <th>Make Changes</th>
                       </tr>
                       </thead>
+                      <tbody>
                       {% for book in books %}
                       <tr>
                           <td>{{book.s_id}}</td>
                           <td>{{book.book_name}}</td>
                           <td>{{book.author}}</td>
                           <td>{{book.category_title}}</td>
-                          <td><a href="{% url 'libraryapp:admindelete' book.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
-                          <td><a href="{% url 'libraryapp:adminupdate' book.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+                          <td><a href="{% url 'libraryapp:adminbookdelete' book.id %}" class="btn btn-warning" data-toggle="modal" data-target="#library"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                          <a href="{% url 'libraryapp:adminbookupdate' book.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+                        </td>
                       </tr>
                       {% endfor %}
+                    </tbody>
                 </table>
           </div>
+        </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 
 {% endblock %}

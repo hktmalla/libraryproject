@@ -2,6 +2,16 @@
 {% load static %}
 
 
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/css/jquery.dataTables.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'datatable/js/jquery.dataTables.js' %}"></script>
+{% endblock %}
+
+
 {% block content %}
 
    <div class="row">
@@ -12,7 +22,7 @@
 
     <div class="container">
                 <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover">
+                                <table class="table table-bordered table-striped table-hover" id="myTable">
                                     <thead>
                                         <tr>
                                             <th>Student Name</th>
@@ -36,4 +46,10 @@
                   </div>
 
 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 {% endblock %}

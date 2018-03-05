@@ -1,10 +1,41 @@
 {% extends '../base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-</body>
-</html>
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-lg  text-center" style="background-color: hsla(10%,45%,70%,0.8);">
+			<h3>Library Management System</h3>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+	<div id="myCarousel" class="carousel slide col-md-offset-3" data-ride="carousel">
+  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		    <li data-target="#myCarousel" data-slide-to="2"></li>
+		    <li data-target="#myCarousel" data-slide-to="3"></li>
+		  </ol>
+
+			  <!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			    <div class="item active">
+			      <img src="{% static 'images/img1.jpg'%}">
+			    </div>
+
+			    <div class="item">
+			      <img src="{% static 'images/img2.jpg'%}">
+			    </div>
+
+			    <div class="item">
+			      <img src="{% static 'images/img3.jpg' %}">
+			    </div>
+			    <div class="item">
+			      <img src="{% static 'images/img4.jpg' %}">
+			    </div>
+			</div>
+      </div>
+	</div>
+
+{% endblock %}
