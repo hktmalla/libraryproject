@@ -1,0 +1,45 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datetimepicker.css' %}">
+{% endblock %}
+
+{% block javascript %}
+   <script src="{% static 'js/datetimepicker.js' %}"></script>
+   <script src="{% static 'js/moment.js' %}"></script>
+{% endblock %}
+
+     {% block content %}
+
+     <div class="row">
+         <div class="col-md-6 col-md-offset-3 text-center">
+            <h2 style="color: #0C18D1; font-weight: bold;">Edit Issue Form</h2><hr>
+        </div>
+        <div class="col-md-6 col-md-offset-3" style="background-color: #fff; padding: 40px;">
+            
+            <form method="POST">
+               {% csrf_token %}
+               {{ form.as_p }}
+               <div class="col-md-6">
+                     <button class="btn btn-primary btn-block">Edit</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'libraryapp:adminissuelist' %}" class="btn btn-primary btn-block pull-right">Cancel</a>
+                 </div>
+            </form>
+        </div>
+
+      </div>
+
+   <script>
+   $(function () {
+        $('#datetimepicker4').datetimepicker();
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker5').datetimepicker();
+    });
+</script>
+   {% endblock %}

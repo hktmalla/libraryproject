@@ -114,3 +114,18 @@ class AdminIssueListView(LoginRequiredMixin, ListView):
     template_name = 'issue/adminissuelist.html'
     queryset = Issue.objects.all()
     context_object_name = 'issues'
+
+
+class AdminIssueDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = '/login/'
+    template_name = 'issue/issuedelete.html'
+    model = Issue
+    success_url = '/admin-dash/issue-read/'
+
+
+class AdminIssueUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = '/login/'
+    template_name = 'issue/issueupdate.html'
+    model = Issue
+    form_class = IssueForm
+    success_url = '/admin-dash/issue-read/'

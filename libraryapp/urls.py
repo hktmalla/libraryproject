@@ -37,4 +37,8 @@ urlpatterns = [
         AdminIssueCreateView.as_view(), name="adminissue"),
     url('^admin-dash/issue-read/$',
         AdminIssueListView.as_view(), name="adminissuelist"),
+    url('^admin-dash/issue/delete/(?P<pk>\d+)/$',
+        AdminIssueDeleteView.as_view(), name="issuedelete"),
+    url('^admin-dash/issue/update/(?P<pk>\d+)/$',
+        AdminIssueUpdateView.as_view(), name="issueupdate"),
 ]

@@ -20,32 +20,37 @@
                 </div>
     </div>
 
-    <div class="container">
+      <div class="container">
                 <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover" id="myTable">
-                                    <thead>
-                                        <tr>
-                                           <th>S.NO</th>
-                                            <th>Student Name</th>
-                                            <th>Book </th>
-                                            <th>Issue Date </th>
-                                            <th>Expiry Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for issue in issues %}
-                                        <tr>
-                                              <td>{{forloop.counter}}</td>
-                                              <td>{{issue.issue_name.student_name}}</td>
-                                              <td>{{issue.issue_book.book_name}}</td>
-                                              <td>{{issue.issue_date}}</td>
-                                              <td>{{issue.expire_date}}</td>
-                                          </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                  </div>
+                    <table class="table table-bordered table-striped table-hover" id="myTable">
+                        <thead>
+                            <tr>
+                               <th>S.NO</th>
+                                <th>Student Name</th>
+                                <th>Book </th>
+                                <th>Issue Date </th>
+                                <th>Expiry Date</th>
+                                <th> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for issue in issues %}
+                            <tr>
+                                  <td>{{forloop.counter}}</td>
+                                  <td>{{issue.issue_name.student_name}}</td>
+                                  <td>{{issue.issue_book.book_name}}</td>
+                                  <td>{{issue.issue_date}}</td>
+                                  <td>{{issue.expire_date}}</td>
+                                  <td>
+                                     <a href="{% url 'libraryapp:issueupdate' issue.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Update</a>
+                                     <a href="{% url 'libraryapp:issuedelete' issue.id %}" class="btn btn-warning" data-toggle="modal" data-target="#library"><span class="glyphicon glyphicon-trash">Remove</span></a>
+                                  </td>
+                              </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+      </div>
 
 
 

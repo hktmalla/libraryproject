@@ -20,6 +20,8 @@ class StudentForm(forms.ModelForm):
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update(
                 {'class': 'form-control'})
+        self.fields['batch'].widget.attrs.update(
+            {'id': 'datetimepicker6'})
 
 
 class BookForm(forms.ModelForm):
@@ -31,8 +33,7 @@ class BookForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update(
-                {'class': 'form-control'}
-            )
+                {'class': 'form-control'})
 
 
 class IssueForm(forms.ModelForm):
@@ -46,3 +47,7 @@ class IssueForm(forms.ModelForm):
             self.fields[field].widget.attrs.update(
                 {'class': 'form-control'}
             )
+        self.fields['issue_date'].widget.attrs.update(
+            {'id': 'datetimepicker4'})
+        self.fields['expire_date'].widget.attrs.update(
+            {'id': 'datetimepicker5'})
