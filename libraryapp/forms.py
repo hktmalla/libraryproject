@@ -21,7 +21,7 @@ class StudentForm(forms.ModelForm):
             self.fields[field].widget.attrs.update(
                 {'class': 'form-control'})
         self.fields['batch'].widget.attrs.update(
-            {'id': 'datetimepicker6'})
+            {'id': 'datepicker6'})
 
 
 class BookForm(forms.ModelForm):
@@ -48,6 +48,6 @@ class IssueForm(forms.ModelForm):
                 {'class': 'form-control'}
             )
         self.fields['issue_date'].widget.attrs.update(
-            {'id': 'datetimepicker4'})
+            {'id': 'datepicker4'})
         self.fields['expire_date'].widget.attrs.update(
-            {'id': 'datetimepicker5'})
+            {'id': 'datepicker5'})

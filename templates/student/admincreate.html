@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/datetimepicker.css' %}">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {% endblock %}
 
 {% block javascript %}
-    <script src="{% static 'js/datetimepicker.js' %}"></script>
-    <script src="{% static 'js/moment.js' %}"></script>
+     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -33,7 +33,7 @@
 
     <script>
        $(function () {
-            $('#datetimepicker6').datetimepicker();
+            $('#datepicker6').datepicker();
         });
     </script>
 {% endblock %}
